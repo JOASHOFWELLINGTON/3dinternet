@@ -1,122 +1,295 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Fusion</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Team Page</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Monoton&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ff7f50, #ff1493);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(45deg, #6a5acd, #ff6347);
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-family: 'Monoton', cursive;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #ff6347;
+            border-color: #ff6347;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff1493;
+            border-color: #ff1493;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.5);
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section:nth-child(odd) {
+            background-color: #fff;
+            color: #333;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container video:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Welcome to the Cool Team Page</h1>
+            <a href="#team-info" class="btn btn-primary btn-lg">Join Our Team</a>
         </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Fusion</div>
-      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#team-info">Team Info</a></li>
+            <li class="list-inline-item"><a href="#team-meeting">Team Meeting</a></li>
+            <li class="list-inline-item"><a href="#pre-production">Pre-Production</a></li>
+            <li class="list-inline-item"><a href="#production">Production</a></li>
+        </ul>
+    </nav>
+
+    <!-- Team Info Section -->
+    <section id="team-info">
+        <div class="container">
+            <h2>Team Info</h2>
+            <p>Welcome to the 2025 "48 Hour" Team Page! This is where you can find all the relevant info about the team. If you are here, then you've probably joined our awesome team!</p>
+            <p>Check out our practice shoots from last year bellow and take a look at our previous entrie!</p>
+
+<div id="youtube-player"></div>
+
+<script>
+    function onYouTubeIframeAPIReady() {
+        new YT.Player('youtube-player', {
+            
+            width: '100%',
+            videoId: '1u7qP4CB164?si=IPoGlhVuft8tH0Qk',  // Replace with your YouTube video ID
+            playerVars: { autoplay: 1, controls: 1 }
+        });
+    }
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
+
+ 
+        </div>
+    </section>
+
+    <!-- Team Meeting Section -->
+    <section id="team-meeting">
+        <div class="container">
+            <h2>Team Meeting</h2>
+            <p>It's time to gather! Here's the schedule for our team meeting and preparation:</p>
+            <ul class="list-unstyled">
+                <li>2:00 PM - Roles & Setup</li>
+                <li>2:15 PM - Equipment & Tech Tests</li>
+                <li>2:30 PM - Brainstorming Session</li>
+                <li>3:00 PM - Script Writing</li>
+                <li>4:00 PM - Shoot Script</li>
+                <li>6:00 PM - Wrap Up</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pre-Production Section -->
+    <section id="pre-production">
+        <div class="container">
+            <h2>Pre-Production</h2>
+            <p>Before we start shooting, here's the pre-production info and registration links.</p>
+            <a href="https://www.48hours.co.nz/" class="btn btn-primary">Register Here</a>
+        </div>
+    </section>
+
+    <!-- Production Section -->
+    <section id="production">
+        <div class="container">
+            <h2>Production</h2>
+            <p>Our production is well underway! We're still looking for talented individuals to join us. If you're an actor or a part of the crew, please let us know!</p>
+            <p><a href="#messages" class="btn btn-primary">Sign Up & Register Roles</a></p>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <div class="container">
+            <h2>Previous test shoots</h2>
+            <div class="video-container">
+                <div class="video-item">
+                    <h3>Steve the Dog</h3>
+                    <video controls>
+                        <source src="https://github.com/JOASHOFWELLINGTON/48HourTeamSite/raw/main/videos/Steve%20the%20dog.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <h3>Sad & Happy Support Group</h3>
+                    <video controls>
+                        <source src="https://github.com/JOASHOFWELLINGTON/48HourTeamSite/raw/main/videos/Sad_&_Happy_support_group.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-item">
+                    <h3>Hammers Intro</h3>
+                    <video controls>
+                        <source src="https://github.com/JOASHOFWELLINGTON/48HourTeamSite/raw/main/videos/Hammers_Intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages -->
+
+
+
+<div class="container mt-3">
+  <h2>Messages</h2>
+  <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSdGGiV9LbDz50t6O3Nv5DCfKXQ9Ett3-yqC0aWQESlI1ypOWQ/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+  
+    <div class="mb-3 mt-3">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter name" name="entry.1261876333" id="entry.1261876333">
     </div>
-    <script>
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="entry.744710745" id="entry.744710745">
+    </div>
+    
+    
+    <div class="mb-3 mt-3">
+      <label for="message">Messages:</label>
+      <textarea class="form-control" rows="5" id="comment" name="entry.1530950368" id="entry.1530950368"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+<!-- messages -->
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Cool Team. All rights reserved.</p>
+    </footer>
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Build.data.unityweb",
-        frameworkUrl: buildUrl + "/Build.framework.js.unityweb",
-        codeUrl: buildUrl + "/Build.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Fusion",
-        productVersion: "0.1",
-        showBanner: unityShowBanner,
-      };
+    <!-- Bootstrap 5 JS & Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+<script type="text/javascript">var submitted=false;</script>
+<script type="text/javascript">
+$('#gform').on('submit', function(e) {
+  $('#gform *').fadeOut(2000);
+  $('#gform').prepend('Your submission has been processed...');
+  });
+</script>
+</body>
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
 </html>
